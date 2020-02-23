@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="OElite.Restme" Version="2.0.2-dev4" />
+        <PackageReference Include="OElite.Restme" Version="2.0.2-CI00033"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TrasferObjects" />
+        <Folder Include="TrasferObjects"/>
     </ItemGroup>
 
 </Project>
