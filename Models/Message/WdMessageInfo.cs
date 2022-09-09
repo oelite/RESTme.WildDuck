@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RESTme.WildDuck.Models.Message
+namespace OElite.Restme.WildDuck.Models.Message
 {
     public class WdMessageBaseInfo : WdBaseEntity
     {

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <AssemblyName>Restme.WildDuck</AssemblyName>
+        <AssemblyName>OElite.Restme.WildDuck</AssemblyName>
         <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
         <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -10,6 +10,7 @@
         <VersionPrefix>0.0.1</VersionPrefix>
         <Authors>OElite Limited</Authors>
         <Owners>OElite Limited</Owners>
+        <RootNamespace>OElite.Restme.WildDuck</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="TrasferObjects"/>
+        <Folder Include="TrasferObjects" />
     </ItemGroup>
 
 </Project>

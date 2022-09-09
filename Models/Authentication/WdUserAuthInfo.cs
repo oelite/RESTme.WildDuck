@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Authentication
+namespace OElite.Restme.WildDuck.Models.Authentication
 {
     public class WdUserAuthInfo
     {

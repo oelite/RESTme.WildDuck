@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Dkim
+namespace OElite.Restme.WildDuck.Models.Dkim
 {
     public class DkimInfo : WdBaseEntity
     {

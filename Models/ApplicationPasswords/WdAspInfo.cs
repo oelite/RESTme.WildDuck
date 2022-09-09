@@ -1,6 +1,6 @@
 using System;
 
-namespace RESTme.WildDuck.Models.ApplicationPasswords
+namespace OElite.Restme.WildDuck.Models.ApplicationPasswords
 {
     public class WdAspInfo : WdBaseEntity
     {

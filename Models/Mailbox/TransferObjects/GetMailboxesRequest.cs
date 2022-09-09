@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RESTme.WildDuck.Models.Mailbox.TransferObjects
+namespace OElite.Restme.WildDuck.Models.Mailbox.TransferObjects
 {
     public class GetMailboxesRequest
     {

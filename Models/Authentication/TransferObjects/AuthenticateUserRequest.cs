@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Authentication.TransferObjects
+namespace OElite.Restme.WildDuck.Models.Authentication.TransferObjects
 {
     public class AuthenticateUserRequest
     {

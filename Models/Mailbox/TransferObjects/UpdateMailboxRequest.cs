@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Mailbox.TransferObjects
+namespace OElite.Restme.WildDuck.Models.Mailbox.TransferObjects
 {
     public class UpdateMailboxRequest
     {

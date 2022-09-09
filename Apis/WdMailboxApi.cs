@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using OElite;
-using RESTme.WildDuck.Models;
-using RESTme.WildDuck.Models.Mailbox;
-using RESTme.WildDuck.Models.Mailbox.TransferObjects;
+using OElite.Restme.WildDuck.Models;
+using OElite.Restme.WildDuck.Models.Mailbox;
+using OElite.Restme.WildDuck.Models.Mailbox.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdMailboxApi
     {

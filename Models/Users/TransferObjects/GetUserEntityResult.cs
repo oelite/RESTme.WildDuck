@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Users.TransferObjects
+namespace OElite.Restme.WildDuck.Models.Users.TransferObjects
 {
     public class GetUserEntityResult : WdUserInfo
     {

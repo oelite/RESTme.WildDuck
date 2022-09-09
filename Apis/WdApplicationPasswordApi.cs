@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using RESTme.WildDuck.Models;
-using RESTme.WildDuck.Models.ApplicationPasswords.TransferObjects;
+using OElite.Restme.WildDuck.Models;
+using OElite.Restme.WildDuck.Models.ApplicationPasswords.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdApplicationPasswordApi
     {

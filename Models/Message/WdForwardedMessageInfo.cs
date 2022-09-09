@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Message
+namespace OElite.Restme.WildDuck.Models.Message
 {
     public class WdForwardedMessageInfo
     {

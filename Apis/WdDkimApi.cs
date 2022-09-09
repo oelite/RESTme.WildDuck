@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using OElite;
-using RESTme.WildDuck.Models;
-using RESTme.WildDuck.Models.Dkim;
-using RESTme.WildDuck.Models.Dkim.TransferObjects;
+using OElite.Restme.WildDuck.Models;
+using OElite.Restme.WildDuck.Models.Dkim;
+using OElite.Restme.WildDuck.Models.Dkim.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdDkimApi
     {

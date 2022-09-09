@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using RESTme.WildDuck.Models.Authentication.TransferObjects;
+using OElite.Restme.WildDuck.Models.Authentication.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdAuthenticationApi
     {

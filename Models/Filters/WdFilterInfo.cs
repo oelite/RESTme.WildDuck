@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Filters
+namespace OElite.Restme.WildDuck.Models.Filters
 {
     public class WdFilterInfo
     {

@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using RESTme.WildDuck.Models;
-using RESTme.WildDuck.Models.Users.TransferObjects;
+using OElite.Restme.WildDuck.Models;
+using OElite.Restme.WildDuck.Models.Users.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdUserApi
     {

@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models
+namespace OElite.Restme.WildDuck.Models
 {
     public class WdBaseResponse
     {

@@ -1,6 +1,6 @@
 using OElite;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public class WildDuckApi
     {

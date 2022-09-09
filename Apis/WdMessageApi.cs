@@ -1,12 +1,12 @@
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using RESTme.WildDuck.Models;
-using RESTme.WildDuck.Models.Mailbox.TransferObjects;
-using RESTme.WildDuck.Models.Message;
-using RESTme.WildDuck.Models.Message.TransferObjects;
+using OElite.Restme.WildDuck.Models;
+using OElite.Restme.WildDuck.Models.Mailbox.TransferObjects;
+using OElite.Restme.WildDuck.Models.Message;
+using OElite.Restme.WildDuck.Models.Message.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdMessageApi
     {

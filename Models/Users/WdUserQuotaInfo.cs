@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Users
+namespace OElite.Restme.WildDuck.Models.Users
 {
     public class WdUserQuotaInfo
     {

@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using RESTme.WildDuck.Models;
-using RESTme.WildDuck.Models.Filters;
-using RESTme.WildDuck.Models.Filters.TransferObjects;
+using OElite.Restme.WildDuck.Models;
+using OElite.Restme.WildDuck.Models.Filters;
+using OElite.Restme.WildDuck.Models.Filters.TransferObjects;
 
-namespace RESTme.WildDuck.Apis
+namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdFilterApi
     {

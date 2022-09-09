@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Mailbox
+namespace OElite.Restme.WildDuck.Models.Mailbox
 {
     public class WdMailboxInfo
     {

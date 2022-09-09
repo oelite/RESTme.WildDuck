@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RESTme.WildDuck.Models.ApplicationPasswords.TransferObjects
+namespace OElite.Restme.WildDuck.Models.ApplicationPasswords.TransferObjects
 {
     public class ListApplicationResult : WdBaseResponse
     {

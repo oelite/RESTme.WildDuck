@@ -1,4 +1,4 @@
-namespace RESTme.WildDuck.Models.Dkim.TransferObjects
+namespace OElite.Restme.WildDuck.Models.Dkim.TransferObjects
 {
     public class ListDkimRequest
     {

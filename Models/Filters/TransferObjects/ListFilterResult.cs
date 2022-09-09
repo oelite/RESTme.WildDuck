@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RESTme.WildDuck.Models.Filters.TransferObjects
+namespace OElite.Restme.WildDuck.Models.Filters.TransferObjects
 {
     public class ListFilterResult
     {

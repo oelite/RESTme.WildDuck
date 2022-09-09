@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace RESTme.WildDuck.Models
+namespace OElite.Restme.WildDuck.Models
 {
     public class WdBaseEntityCollectionResponse<T> where T : WdBaseEntity
     {
