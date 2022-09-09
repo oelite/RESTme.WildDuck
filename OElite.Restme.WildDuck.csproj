@@ -18,8 +18,4 @@
         <PackageReference Include="OElite.Restme" Version="2.0.2-dev-307" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="TrasferObjects" />
-    </ItemGroup>
-
 </Project>
