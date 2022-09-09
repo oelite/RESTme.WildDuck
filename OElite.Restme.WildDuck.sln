@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTme.WildDuck", "RESTme.WildDuck.csproj", "{879E8EA4-7B18-4676-9096-69858567D1D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OElite.Restme.WildDuck", "OElite.Restme.WildDuck.csproj", "{879E8EA4-7B18-4676-9096-69858567D1D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
