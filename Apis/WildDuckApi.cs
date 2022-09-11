@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using OElite;
 
 namespace OElite.Restme.WildDuck.Apis
@@ -22,7 +23,14 @@ namespace OElite.Restme.WildDuck.Apis
         {
             if (ApiKey.IsNotNullOrEmpty() && ApiEndpoint.IsNotNullOrEmpty())
             {
-                var restClient = new Rest(ApiEndpoint);
+                var restClient = new Rest(ApiEndpoint, new RestConfig(new JsonSerializerSettings
+                {
+                    ContractResolver = new OEliteJsonResolver(),
+                    NullValueHandling = NullValueHandling.Ignore,
+                    MissingMemberHandling = MissingMemberHandling.Ignore,
+                    DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                    DateTimeZoneHandling = DateTimeZoneHandling.Utc
+                }));
                 restClient.AddHeader("X-Access-Token", ApiKey);
                 return restClient;
             }
@@ -32,8 +40,8 @@ namespace OElite.Restme.WildDuck.Apis
 
         public static string ApiPath(string path, string prefix = null)
         {
-            path = path?.Trim(new char[] {'/'});
-            prefix = prefix?.Trim(new char[] {'/'});
+            path = path?.Trim(new char[] { '/' });
+            prefix = prefix?.Trim(new char[] { '/' });
             return $"{prefix}{(path.IsNotNullOrEmpty() ? "/" + path : path)}";
         }
     }

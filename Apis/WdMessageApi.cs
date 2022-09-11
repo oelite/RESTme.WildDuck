@@ -1,4 +1,6 @@
 using System.IO;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using OElite.Restme.WildDuck.Models;
@@ -57,12 +59,23 @@ namespace OElite.Restme.WildDuck.Apis
             string userId, string mailboxId, GetMessagesRequest request)
         {
             using var rest = api.Restme();
+            var requestObj = new
+            {
+                unseen = request.Unseen,
+                metaData = request.MetaData,
+                threadCounters = request.ThreadCounters,
+                limit = request.Limit,
+                page = request.Page,
+                order = request.Order,
+                next = request.Next,
+                previous = request.Previous
+            };
             return rest.GetAsync<WdBaseEntityCollectionResponse<WdMessageBaseInfo>>(
-                ApiPath(userId, mailboxId, "messages"), request);
+                ApiPath(userId, mailboxId, "messages"), requestObj);
         }
 
         public static Task<WdMessageDetail> GetMessageAsync(this WildDuckApi api, string userId, string mailboxId,
-            string messageId, bool markAsSeen = false)
+            long messageId, bool markAsSeen = false)
         {
             using var rest = api.Restme();
             return rest.GetAsync<WdMessageDetail>(

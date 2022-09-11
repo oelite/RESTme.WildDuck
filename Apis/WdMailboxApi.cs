@@ -1,3 +1,4 @@
+using System.Dynamic;
 using System.Threading.Tasks;
 using OElite;
 using OElite.Restme.WildDuck.Models;
@@ -8,7 +9,7 @@ namespace OElite.Restme.WildDuck.Apis
 {
     public static class WdMailboxApi
     {
-        private static string ApiPath(string path = null, string prefix = "user")
+        private static string ApiPath(string path = null, string prefix = "users")
         {
             return WildDuckApi.ApiPath(path, prefix);
         }
@@ -30,7 +31,17 @@ namespace OElite.Restme.WildDuck.Apis
             GetMailboxesRequest request)
         {
             using var rest = api.Restme();
-            return rest.GetAsync<GetMailboxesResponse>(ApiPath($"{userId}/mailboxes"), request);
+            var requestObj = new
+            {
+                specialUse = request.SpecialUse,
+                showHidden = request.ShowHidden,
+                counters = request.Counters,
+                sizes = request.Sizes
+            };
+
+
+            return rest.GetAsync<GetMailboxesResponse>(ApiPath($"{userId}/mailboxes"),
+                requestObj);
         }
 
         public static Task<GetMailboxResponse> GetMailboxAsync(this WildDuckApi api, string userId,
