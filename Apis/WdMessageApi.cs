@@ -74,12 +74,18 @@ namespace OElite.Restme.WildDuck.Apis
                 ApiPath(userId, mailboxId, "messages"), requestObj);
         }
 
-        public static Task<WdMessageDetail> GetMessageAsync(this WildDuckApi api, string userId, string mailboxId,
+        public static async Task<WdMessageDetail> GetMessageAsync(this WildDuckApi api, string userId, string mailboxId,
             long messageId, bool markAsSeen = false)
         {
             using var rest = api.Restme();
-            return rest.GetAsync<WdMessageDetail>(
+            var result = await rest.GetAsync<GetMessageResult>(
                 ApiPath(userId, mailboxId, $"messages/{messageId}?markAsSeen={markAsSeen}"));
+            if (result?.Success == true)
+            {
+                return result;
+            }
+
+            return null;
         }
 
         public static Task<WdBaseEntityCollectionResponse<WdMessageBaseInfo>> GetMessagesSearchAsync(
