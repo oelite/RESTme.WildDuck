@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace OElite.Restme.WildDuck.Models.Message
@@ -20,6 +21,10 @@ namespace OElite.Restme.WildDuck.Models.Message
         public bool? Flagged { get; set; }
         public bool? Answered { get; set; }
         public bool? Forwarded { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime IDate { get; set; }
+
+
         public List<KeyValuePair<string, string>> Headers { get; set; }
         public WdMessageContentType ContentType { get; set; }
     }
@@ -30,7 +35,6 @@ namespace OElite.Restme.WildDuck.Models.Message
 
         public WdMessageEnvelope Envelop { get; set; }
         public string MessageId { get; set; }
-        public string Date { get; set; }
         public WdMessageMailingList List { get; set; }
         public string Expires { get; set; }
 
@@ -48,7 +52,6 @@ namespace OElite.Restme.WildDuck.Models.Message
         /// List of files added to this message as attachments. Applies to Drafts, normal messages do not have this property. Needed to prevent uploading the same attachment every time a draft is updated
         /// </summary>
         public List<WdMessageFileInfo> Files { get; set; }
-
     }
 
     public class WdMessageAddress : WdBaseEntity
