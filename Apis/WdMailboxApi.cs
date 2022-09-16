@@ -39,7 +39,6 @@ namespace OElite.Restme.WildDuck.Apis
                 sizes = request.Sizes
             };
 
-
             return rest.GetAsync<GetMailboxesResponse>(ApiPath($"{userId}/mailboxes"),
                 requestObj);
         }

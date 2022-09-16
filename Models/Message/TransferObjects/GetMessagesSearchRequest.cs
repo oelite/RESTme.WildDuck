@@ -6,8 +6,8 @@ namespace OElite.Restme.WildDuck.Models.Message.TransferObjects
         public string Mailbox { get; set; }
         public string Thread { get; set; }
         public string Query { get; set; }
-        public string Datestart { get; set; }
-        public string Dateend { get; set; }
+        public string DateStart { get; set; }
+        public string DateEnd { get; set; }
         public string From { get; set; }
         public string To { get; set; }
         public string Subject { get; set; }

@@ -31,6 +31,7 @@ namespace OElite.Restme.WildDuck.Apis
                     DateFormatHandling = DateFormatHandling.IsoDateFormat,
                     DateTimeZoneHandling = DateTimeZoneHandling.Utc
                 }));
+                restClient.Configuration.OperationMode = RestMode.HTTPRestClient;
                 restClient.AddHeader("X-Access-Token", ApiKey);
                 return restClient;
             }

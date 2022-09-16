@@ -1,11 +1,11 @@
+using System;
+
 namespace OElite.Restme.WildDuck.Models.Message.TransferObjects
 {
     public class SubmitStoredMessageRequest
     {
-        public string User { get; set; }
-        public string Mailbox { get; set; }
-        public string Message { get; set; }
         public bool? DeleteFiles { get; set; }
+        public DateTime SendTime { get; set; }
     }
 
     public class SubmitStoredMessageResult : WdBaseResponse

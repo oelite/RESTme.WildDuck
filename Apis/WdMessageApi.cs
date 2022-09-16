@@ -1,4 +1,6 @@
+using System.Dynamic;
 using System.IO;
+using System.Net.Http;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
@@ -7,6 +9,7 @@ using OElite.Restme.WildDuck.Models;
 using OElite.Restme.WildDuck.Models.Mailbox.TransferObjects;
 using OElite.Restme.WildDuck.Models.Message;
 using OElite.Restme.WildDuck.Models.Message.TransferObjects;
+using RabbitMQ.Client;
 
 namespace OElite.Restme.WildDuck.Apis
 {
@@ -33,15 +36,15 @@ namespace OElite.Restme.WildDuck.Apis
 
         public static Task<MemoryStream> DownloadAttachmentAsync(this WildDuckApi api, string userId,
             string mailboxId,
-            string messageId, string attachmentId)
+            long messageId, string attachmentId)
         {
             using var rest = api.Restme();
-            return rest.DeleteAsync<MemoryStream>(ApiPath(userId, mailboxId,
+            return rest.GetAsync<MemoryStream>(ApiPath(userId, mailboxId,
                 $"messages/{messageId}/attachments/{attachmentId}"));
         }
 
         public static Task<ForwardStoredMessageResult> ForwardStoredMessageAsync(this WildDuckApi api,
-            string userId, string mailboxId, string messageId, ForwardStoredMessageRequest request)
+            string userId, string mailboxId, long messageId, ForwardStoredMessageRequest request)
         {
             using var rest = api.Restme();
             return rest.PostAsync<ForwardStoredMessageResult>(ApiPath(userId, mailboxId,
@@ -49,7 +52,7 @@ namespace OElite.Restme.WildDuck.Apis
         }
 
         public static Task<string> GetMessageSourceAsync(this WildDuckApi api, string userId, string mailboxId,
-            string messageId)
+            long messageId)
         {
             using var rest = api.Restme();
             return rest.GetAsync<string>(ApiPath(userId, mailboxId, $"messages/{messageId}/message.eml"));
@@ -79,7 +82,15 @@ namespace OElite.Restme.WildDuck.Apis
         {
             using var rest = api.Restme();
             var result = await rest.GetAsync<GetMessageResult>(
-                ApiPath(userId, mailboxId, $"messages/{messageId}?markAsSeen={markAsSeen}"));
+                ApiPath(userId, mailboxId, $"messages/{messageId}"), new
+                {
+                    markAsSeen = markAsSeen.ToString().ToLower()
+                });
+            var test = await rest.GetAsync<string>(
+                ApiPath(userId, mailboxId, $"messages/{messageId}"), new
+                {
+                    markAsSeen = markAsSeen.ToString().ToLower()
+                });
             if (result?.Success == true)
             {
                 return result;
@@ -98,7 +109,7 @@ namespace OElite.Restme.WildDuck.Apis
         }
 
         public static Task<SubmitStoredMessageResult> SubmitStoredMessageAsync(this WildDuckApi api,
-            string userId, string mailboxId, string messageId, SubmitStoredMessageRequest request)
+            string userId, string mailboxId, long messageId, SubmitStoredMessageRequest request)
         {
             using var rest = api.Restme();
             return rest.PostAsync<SubmitStoredMessageResult>(
@@ -112,11 +123,13 @@ namespace OElite.Restme.WildDuck.Apis
             return rest.PutAsync<UpdateMessageResult>(ApiPath(userId, mailboxId, "messages"), request);
         }
 
-        public static Task<UploadMessageResponse> UploadMessageAsync(this WildDuckApi api, string userId,
+        public static async Task<UploadMessageResponse> UploadMessageAsync(this WildDuckApi api, string userId,
             string mailboxId, UploadMessageRequest request)
         {
             using var rest = api.Restme();
-            return rest.PostAsync<UploadMessageResponse>(ApiPath(userId, mailboxId, "messages"), request);
+
+            return await rest.PostAsync<UploadMessageResponse>(ApiPath(userId, mailboxId, "messages"),
+                request);
         }
     }
 }

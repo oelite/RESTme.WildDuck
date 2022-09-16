@@ -23,6 +23,7 @@ namespace OElite.Restme.WildDuck.Models.Message
         public bool? Forwarded { get; set; }
         public DateTime Date { get; set; }
         public DateTime IDate { get; set; }
+        public long Size { get; set; }
 
 
         public List<KeyValuePair<string, string>> Headers { get; set; }
@@ -43,8 +44,8 @@ namespace OElite.Restme.WildDuck.Models.Message
 
         public WdMessageVerificationResult VerificationResults { get; set; }
 
-        public string MetaData { get; set; }
-        public string Reference { get; set; }
+        public object MetaData { get; set; }
+        public object[] References { get; set; }
 
         public new List<WdMessageAttachment> Attachments { get; set; }
 
@@ -87,6 +88,8 @@ namespace OElite.Restme.WildDuck.Models.Message
     public class WdMessageAttachment : WdBaseEntity
     {
         public string Id { get; set; }
+        public string Cid { get; set; }
+        public string Content { get; set; }
         public string FileName { get; set; }
         public string ContentType { get; set; }
         public string Disposition { get; set; }
