@@ -18,7 +18,7 @@ namespace OElite.Restme.WildDuck.Models.Message.TransferObjects
         public string Text { get; set; }
         public string Html { get; set; }
         public KeyValuePair<string, string>[] Headers { get; set; }
-        public new WdMessageAttachment[] Attachments { get; set; }
+        public new WdMessageAttachmentUpload[] Attachments { get; set; }
         public WdMessageFileInfo[] Files { get; set; }
         public object Reference { get; set; }
         public object MetaData { get; set; }

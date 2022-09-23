@@ -98,6 +98,14 @@ namespace OElite.Restme.WildDuck.Models.Message
         public long SizeKb { get; set; }
     }
 
+    public class WdMessageAttachmentUpload : WdBaseEntity
+    {
+        public string Cid { get; set; }
+        public string Content { get; set; }
+        public string Filename { get; set; }
+        public string ContentType { get; set; }
+    }
+
     public class WdMessageVerificationResult : WdBaseEntity
     {
         public WdMessageTlsVerificationResult Tls { get; set; }

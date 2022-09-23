@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Dynamic;
 using System.IO;
 using System.Net.Http;
@@ -127,7 +128,6 @@ namespace OElite.Restme.WildDuck.Apis
             string mailboxId, UploadMessageRequest request)
         {
             using var rest = api.Restme();
-
             return await rest.PostAsync<UploadMessageResponse>(ApiPath(userId, mailboxId, "messages"),
                 request);
         }
