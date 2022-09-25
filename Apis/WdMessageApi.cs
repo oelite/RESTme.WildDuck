@@ -28,6 +28,29 @@ namespace OElite.Restme.WildDuck.Apis
             return rest.DeleteAsync<WdBaseResponse>(ApiPath(userId, mailboxId, $"messages/{messageId}"));
         }
 
+        public static async Task<DeleteMessagesResult> DeleteMessagesAsync(this WildDuckApi api, string userId,
+            DeleteMessageRequest[] requests)
+        {
+            var result = new DeleteMessagesResult { Deleted = 0 };
+            if (requests?.Length > 0)
+            {
+                using var rest = api.Restme();
+                foreach (var request in requests)
+                {
+                    var response = await rest.DeleteAsync<WdBaseResponse>(ApiPath(userId, request.MailboxId,
+                        $"messages/{request.MessageId}"));
+                    if (response?.Success == true)
+                    {
+                        result.Deleted++;
+                    }
+                }
+
+                result.Success = result.Deleted == requests.Length;
+            }
+
+            return result;
+        }
+
         public static Task<DeleteMessagesResult> DeleteAllMessagesAsync(this WildDuckApi api, string userId,
             string mailboxId)
         {
