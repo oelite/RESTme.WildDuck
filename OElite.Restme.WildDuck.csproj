@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OElite.Restme" Version="2.0.2-dev-307" />
+        <PackageReference Include="OElite.Restme" Version="2.0.2-dev-318" />
     </ItemGroup>
 
 </Project>

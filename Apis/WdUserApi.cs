@@ -34,7 +34,7 @@ namespace OElite.Restme.WildDuck.Apis
         {
             using var rest = api.Restme();
             return
-                rest.PostAsync<WdBaseEntityCollectionResponse<GetUsersEntityResult>>(ApiPath(), request);
+                rest.GetAsync<WdBaseEntityCollectionResponse<GetUsersEntityResult>>(ApiPath(), request);
         }
 
         public static async Task<bool> PutUserLogoutAsync(this WildDuckApi api, string userId)
