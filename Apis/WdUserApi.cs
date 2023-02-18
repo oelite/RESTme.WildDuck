@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage.Core;
 using Newtonsoft.Json.Linq;
 using OElite.Restme.WildDuck.Models;
 using OElite.Restme.WildDuck.Models.Users.TransferObjects;
@@ -33,8 +36,25 @@ namespace OElite.Restme.WildDuck.Apis
             GetUsersRequest request)
         {
             using var rest = api.Restme();
+            var paramBuilder = new UriQueryBuilder();
+            if (request?.Limit > 0)
+                paramBuilder.Add("limit", request.Limit.ToString());
+            if (request?.Tags?.IsNotNullOrEmpty() == true)
+                paramBuilder.Add("tags", request.Tags);
+            if (request?.RequiredTags?.IsNotNullOrEmpty() == true)
+                paramBuilder.Add("requiredTags", request.RequiredTags);
+            if (request?.Query?.IsNotNullOrEmpty() == true)
+                paramBuilder.Add("query", request.Query);
+            if (request?.Next > 0)
+                paramBuilder.Add("next", request.Next.ToString());
+            if (request?.Previous > 0)
+                paramBuilder.Add("previous", request.Previous.ToString());
+            
+            var queryPath = $"{ApiPath()}{paramBuilder}";
+
+
             return
-                rest.GetAsync<WdBaseEntityCollectionResponse<GetUsersEntityResult>>(ApiPath(), request);
+                rest.GetAsync<WdBaseEntityCollectionResponse<GetUsersEntityResult>>(queryPath);
         }
 
         public static async Task<bool> PutUserLogoutAsync(this WildDuckApi api, string userId)
