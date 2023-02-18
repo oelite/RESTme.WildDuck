@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace OElite.Restme.WildDuck.Models.Message
@@ -20,13 +21,38 @@ namespace OElite.Restme.WildDuck.Models.Message
         public bool? Flagged { get; set; }
         public bool? Answered { get; set; }
         public bool? Forwarded { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime IDate { get; set; }
+        public long Size { get; set; }
+
+
         public List<KeyValuePair<string, string>> Headers { get; set; }
         public WdMessageContentType ContentType { get; set; }
     }
 
     public class WdMessageDetail : WdMessageBaseInfo
     {
+        public string User { get; set; }
+
+        public WdMessageEnvelope Envelop { get; set; }
+        public string MessageId { get; set; }
+        public WdMessageMailingList List { get; set; }
+        public string Expires { get; set; }
+
+        public string[] Html { get; set; }
+        public string Text { get; set; }
+
+        public WdMessageVerificationResult VerificationResults { get; set; }
+
+        public object MetaData { get; set; }
+        public object[] References { get; set; }
+
         public new List<WdMessageAttachment> Attachments { get; set; }
+
+        /// <summary>
+        /// List of files added to this message as attachments. Applies to Drafts, normal messages do not have this property. Needed to prevent uploading the same attachment every time a draft is updated
+        /// </summary>
+        public List<WdMessageFileInfo> Files { get; set; }
     }
 
     public class WdMessageAddress : WdBaseEntity
@@ -62,12 +88,22 @@ namespace OElite.Restme.WildDuck.Models.Message
     public class WdMessageAttachment : WdBaseEntity
     {
         public string Id { get; set; }
+        public string Cid { get; set; }
+        public string Content { get; set; }
         public string FileName { get; set; }
         public string ContentType { get; set; }
         public string Disposition { get; set; }
         public string TransferEncoding { get; set; }
         public bool Related { get; set; }
         public long SizeKb { get; set; }
+    }
+
+    public class WdMessageAttachmentUpload : WdBaseEntity
+    {
+        public string Cid { get; set; }
+        public string Content { get; set; }
+        public string Filename { get; set; }
+        public string ContentType { get; set; }
     }
 
     public class WdMessageVerificationResult : WdBaseEntity

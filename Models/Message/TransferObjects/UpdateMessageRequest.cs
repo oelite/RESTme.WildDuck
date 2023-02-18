@@ -2,8 +2,6 @@ namespace OElite.Restme.WildDuck.Models.Message.TransferObjects
 {
     public class UpdateMessageRequest
     {
-        public string User { get; set; }
-        public string Mailbox { get; set; }
         public string Message { get; set; }
         public string MoveTo { get; set; }
         public bool? Seen { get; set; }
