@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <AssemblyName>OElite.Restme.WildDuck</AssemblyName>
@@ -8,14 +7,14 @@
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <DebugType Condition="'$(OS)' != 'Windows_NT'">portable</DebugType>
         <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-        <VersionPrefix>0.0.1</VersionPrefix>
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
         <Authors>OElite Limited</Authors>
         <Owners>OElite Limited</Owners>
         <RootNamespace>OElite.Restme.WildDuck</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OElite.Restme" Version="2.0.2-dev-329" />
+        <PackageReference Include="OElite.Restme" Version="2.0.4-ci219" />
     </ItemGroup>
-
 </Project>
